@@ -19,6 +19,11 @@ const App = () => {
     localStorage.setItem('count', JSON.stringify(latestCount));
     setcount(latestCount);
   }
+  const handleReset=()=>{
+    let resate = 0;
+    localStorage.setItem('count', JSON.stringify(reset));
+    setcount(reset);
+  }
   useEffect(() => {
     handleRefresh();
   }, [])
@@ -27,10 +32,13 @@ const App = () => {
       <div className="container mt-5 d-flex justify-content-center align-items-center">
         <div className="ct p-5 rounded shadow text-center text-white">
           <h1 className="mb-4">Counter</h1>
-          <div className="d-flex justify-content-center align-items-center gap-4">
-            <button className="btn btn-outline-light fs-2 rounded-pill px-4" onClick={handleDecrement}>-</button>
             <span className="fs-3 fw-bold">{count}</span>
-            <button className="btn btn-outline-light fs-2 rounded-pill px-4" onClick={handleIncrement}>+</button>
+          <div className="d-flex justify-content-center align-items-center gap-4">
+            <button className="btn  btn-outline-light fs-2 " onClick={handleDecrement}>-</button>
+            <button className="btn  btn-light fs-5 " onClick={handleReset}>Reset</button>
+
+            <button className="btn btn-outline-light fs-2 " onClick={handleIncrement}>+</button>
+
           </div>
         </div>
       </div>
